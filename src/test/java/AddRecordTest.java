@@ -102,12 +102,9 @@ public class AddRecordTest {
 
         addRecord("John", "Doe", 30, "johndoe@qa.com", 100000, "QA");
         assertEquals(getnumberofrecords(), numberofrecords + 1);
-    }
-    @Test
-    public void updateWebTable() {
-        int numberofrecords = getnumberofrecords();
+        int numberofRecordsAfterUpdate = getnumberofrecords();
         updateLastAddedRecord("Jane", "Doe", 30, "johndoe@qa.com", 100000, "QA");
-        WebElement updatedRecordName = driver.findElement(By.cssSelector("div:nth-child("+numberofrecords+") > div > div:nth-child(1)"));
+        WebElement updatedRecordName = driver.findElement(By.cssSelector("div:nth-child("+numberofRecordsAfterUpdate+") > div > div:nth-child(1)"));
         assertEquals(updatedRecordName.getText(), "Jane");
     }
 
